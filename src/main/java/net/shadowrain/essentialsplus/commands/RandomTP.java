@@ -30,12 +30,14 @@ public class RandomTP implements CommandExecutor {
 
         Player p = (Player) commandSender;
 
-        if(cooldowns.containsKey(commandSender.getName())) {
-            long secondsLeft = ((cooldowns.get(commandSender.getName()) / 1000) + cd) - (System.currentTimeMillis() / 1000);
-            if (secondsLeft > 0) {
-                // Still cooling down
-                commandSender.sendMessage(plugin.PREFIX + "You cant use that commands for another "+ secondsLeft +" seconds!");
-                return true;
+        if (!p.hasPermission("essplus.rtp.cd.bypass")) {
+            if (cooldowns.containsKey(commandSender.getName())) {
+                long secondsLeft = ((cooldowns.get(commandSender.getName()) / 1000) + cd) - (System.currentTimeMillis() / 1000);
+                if (secondsLeft > 0) {
+                    // Still cooling down
+                    commandSender.sendMessage(plugin.PREFIX + "You cant use that commands for another "+ secondsLeft +" seconds!");
+                    return true;
+                }
             }
         }
 

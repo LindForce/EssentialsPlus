@@ -35,7 +35,6 @@ public class TeleportUtils {
         if (isLocationSafe(randomLocation)) {
             return randomLocation;
         } else {
-            p.sendMessage("Location was not safe, relocating");
             return generateLocation(p);
         }
 

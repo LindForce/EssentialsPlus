@@ -1,0 +1,15 @@
+name: EssentialsPlus
+version: ${project.version}
+main: net.shadowrain.essentialsplus.EssentialsPlus
+api-version: 1.16
+authors: [LindForce]
+description: Essentials expansion.
+website: https://shadowrain.net
+commands:
+  slap:
+    description: Slap a user.
+    usage: /<command>
+  rtp:
+    description: Teleports user randomly.
+    usage: /<command>
+    aliases: wild

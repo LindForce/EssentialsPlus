@@ -1,0 +1,17 @@
+package net.shadowrain.essentialsplus;
+
+import net.shadowrain.essentialsplus.commands.RandomTP;
+import net.shadowrain.essentialsplus.commands.Slap;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class EssentialsPlus extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        // Plugin startup logic
+
+        getCommand("slap").setExecutor(new Slap());
+        getCommand("rtp").setExecutor(new RandomTP());
+
+    }
+}

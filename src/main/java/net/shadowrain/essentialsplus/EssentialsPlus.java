@@ -13,6 +13,7 @@ public final class EssentialsPlus extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
+
         getCommand("slap").setExecutor(new Slap());
         getCommand("rtp").setExecutor(new RandomTP(this));
 

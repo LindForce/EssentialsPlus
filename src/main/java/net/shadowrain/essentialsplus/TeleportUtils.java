@@ -12,31 +12,38 @@ import java.util.Random;
 
 public class TeleportUtils {
 
+    static EssentialsPlus plugin;
+
+    public TeleportUtils(EssentialsPlus plugin) {
+        this.plugin = plugin;
+    }
+
     public static HashSet<Material> badBlocks = new HashSet<>();
 
     static {
         badBlocks.add(Material.LAVA);
-        badBlocks.add(Material.GRASS_BLOCK);
+        badBlocks.add(Material.FIRE);
+        badBlocks.add(Material.WATER);
     }
 
     public static Location generateLocation(Player p) {
 
         Random random = new Random();
 
-        int x = random.nextInt(500);
+        int x = random.nextInt(plugin.getConfig().getInt("border"));
         int y = 0;
-        int z = random.nextInt(500);
+        int z = random.nextInt(plugin.getConfig().getInt("border"));
 
         Location randomLocation = new Location(p.getWorld(), x, y, z);
 
         y = randomLocation.getWorld().getHighestBlockYAt(randomLocation);
         randomLocation.setY(y);
 
-        if (isLocationSafe(randomLocation)) {
-            return randomLocation;
-        } else {
-            return generateLocation(p);
+        while (!isLocationSafe(randomLocation)) {
+            randomLocation = generateLocation(p);
         }
+
+        return randomLocation;
 
 
     }

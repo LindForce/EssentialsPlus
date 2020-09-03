@@ -1,2 +1,4 @@
-plugin-prefix: '&8[&2Ess+&8] '
+plugin-prefix: '&8[&2EssPlus&8] '
 cooldown: 300
+border: 500
+reload-message: 'Config was successfully reloaded'
